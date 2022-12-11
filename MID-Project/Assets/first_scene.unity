@@ -1697,6 +1697,8 @@ MonoBehaviour:
   waterLevel3: {fileID: 21300000, guid: 2884944e8e827e445a7e3e4c8e8b3045, type: 3}
   waterLevel4: {fileID: 21300000, guid: 8602c216c34182049b6f9d2b4fc6bf66, type: 3}
   plantGrow: {fileID: 21300000, guid: 97d3dbf508402af4487f16a3cc217f97, type: 3}
+  waterSound: {fileID: 8300000, guid: 58d2595c0c9459d4fb607daac57e9413, type: 3}
+  flowerGrow: {fileID: 8300000, guid: 484e0f983cc40794da5be70721f9ae6f, type: 3}
 --- !u!4 &1880843092
 Transform:
   m_ObjectHideFlags: 0

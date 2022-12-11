@@ -15,6 +15,8 @@ public class Raindrop : MonoBehaviour
     private float displayTime = 2f;
     private bool addDrop = false;
 
+    public AudioClip dropSound; 
+
 
     // Start is called before the first frame update
     void Start()
@@ -86,6 +88,7 @@ public class Raindrop : MonoBehaviour
 
         if (col.gameObject.tag == "Line")
         {
+            AudioSource.PlayClipAtPoint(dropSound, transform.position);
             Destroy(this.gameObject);
 
             if (!addDrop)

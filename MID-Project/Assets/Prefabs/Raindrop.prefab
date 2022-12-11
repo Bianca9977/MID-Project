@@ -123,6 +123,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rb: {fileID: 0}
+  col: {fileID: 0}
+  phaseDisplayText: {fileID: 0}
+  dropSound: {fileID: 8300000, guid: 07bea9e0e0819a2459d7e6b3c9e13815, type: 3}
 --- !u!50 &7827605237645355499
 Rigidbody2D:
   serializedVersion: 4

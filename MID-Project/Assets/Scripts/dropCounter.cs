@@ -10,6 +10,9 @@ public class dropCounter : MonoBehaviour
     private static int counter = 0;
     private static Sprite waterLevel2Copy, waterLevel3Copy, waterLevel4Copy, plantGrowCopy;
 
+    public AudioClip waterSound, flowerGrow;
+    public static AudioClip waterSoundCopy, flowerGrowCopy;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -20,6 +23,9 @@ public class dropCounter : MonoBehaviour
 
         waterLevel = GameObject.Find("waterLevel");
         plantObj = GameObject.Find("middlePlant");
+
+        waterSoundCopy = waterSound;
+        flowerGrowCopy = flowerGrow;
     }
 
     // Update is called once per frame
@@ -36,15 +42,19 @@ public class dropCounter : MonoBehaviour
         if (counter == 2)
         {
             waterLevel.gameObject.GetComponent<SpriteRenderer>().sprite = waterLevel2Copy;
+            AudioSource.PlayClipAtPoint(waterSoundCopy, new Vector3(0,0,0));
         } 
         if (counter == 4)
         {
             waterLevel.gameObject.GetComponent<SpriteRenderer>().sprite = waterLevel3Copy;
+            AudioSource.PlayClipAtPoint(waterSoundCopy, new Vector3(0, 0, 0));
         }
         if (counter == 6)
         {
             waterLevel.gameObject.GetComponent<SpriteRenderer>().sprite = waterLevel4Copy;
+            AudioSource.PlayClipAtPoint(waterSoundCopy, new Vector3(0, 0, 0));
             plantObj.gameObject.GetComponent<SpriteRenderer>().sprite = plantGrowCopy;
+            AudioSource.PlayClipAtPoint(flowerGrowCopy, new Vector3(0, 0, 0));
         }
     }
 }
