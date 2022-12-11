@@ -1,11 +1,18 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Raindrop : MonoBehaviour
 {
     public Rigidbody2D rb;
     private Vector3 pos; //Position
+
+    public Text phaseDisplayText;
+    private Touch theTouch;
+    private float timeTouchEnded;
+    private float displayTime = 2f;
+
 
     // Start is called before the first frame update
     void Start()
@@ -16,18 +23,43 @@ public class Raindrop : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Application.platform == RuntimePlatform.IPhonePlayer)
+        if (Application.platform == RuntimePlatform.Android)
         {
             if (Input.touchCount > 0)
             {
                 Vector3 wp = Camera.main.ScreenToWorldPoint(Input.GetTouch(0).position);
-                //  Debug.Log(wp);
-                if (GetComponent<Collider2D>().OverlapPoint(wp))
+
+                 if (GetComponent<Collider2D>().OverlapPoint(wp))
+                 {
+                     //rb.gravityScale = 1.0f;          
+                 }
+
+                theTouch = Input.GetTouch(0);
+
+                if (theTouch.phase == TouchPhase.Ended)
                 {
-                    rb.gravityScale = 1.0f;
+                    
+                    timeTouchEnded = Time.time;
+                    phaseDisplayText.text = "eeeeeend";
+                }
+                else if (Time.time - timeTouchEnded > displayTime)
+                {
+                    phaseDisplayText.text = "start" + (Time.time - timeTouchEnded);
+                    timeTouchEnded = Time.time;
+
+                    if (GetComponent<Collider2D>().OverlapPoint(wp))
+                    {
+                        rb.gravityScale = 1.0f;          
+                    }
                 }
             }
-        } else
+            else if (Time.time - timeTouchEnded > displayTime)
+            {
+                phaseDisplayText.text = "";
+            }
+        }
+       
+        else
         {
 
             pos = Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, 0));
@@ -36,6 +68,7 @@ public class Raindrop : MonoBehaviour
             {
                 rb.gravityScale = 1.0f;
             }
+
         }
 
     }
@@ -43,6 +76,10 @@ public class Raindrop : MonoBehaviour
     void OnCollisionEnter2D(Collision2D col)
     {
         Debug.Log("OnCollisionEnter2D");
-        Destroy(this.gameObject);
+
+        if (col.gameObject.tag == "Line")
+        {
+            Destroy(this.gameObject);
+        }
     }
 }
