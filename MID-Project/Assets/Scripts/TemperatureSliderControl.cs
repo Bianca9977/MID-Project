@@ -5,12 +5,15 @@ using UnityEngine.UI;
 
 public class TemperatureSliderControl : MonoBehaviour
 {
-    public GameObject overlay;
+    public GameObject overlay, plantObj;
+    public Sprite plantDead, plantFinal;
     public Slider overlaySlider;
     private float initialScale;
     private Vector3 objectScale;
     public Text PlantStatus;
 
+    public AudioClip flowerGrow;
+    private bool flowerGrowFinal = false, flowerDead = false;
 
     // Start is called before the first frame update
     void Start()
@@ -29,9 +32,7 @@ public class TemperatureSliderControl : MonoBehaviour
 
     public void changeOverlay()
     {
-        OscMessage message = new OscMessage();
 
-        message.address = "/Direction";
 
         var sliderValue = overlaySlider.value;
 
@@ -39,11 +40,22 @@ public class TemperatureSliderControl : MonoBehaviour
 
         if (sliderValue > 2.5)
         {
-            PlantStatus.text = "Plant dead";
+            if (!flowerDead)
+            {
+                plantObj.gameObject.GetComponent<SpriteRenderer>().sprite = plantDead;
+                flowerGrowFinal = false;
+                flowerDead = true;
+            }
         }
         else if ((sliderValue <= 2) && (sliderValue > 1.5))
         {
-            PlantStatus.text = "Plant grow";
+            if (!flowerGrowFinal)
+            {
+                plantObj.gameObject.GetComponent<SpriteRenderer>().sprite = plantFinal;
+                AudioSource.PlayClipAtPoint(flowerGrow, new Vector3(0, 0, 0));
+                flowerGrowFinal = true;
+                flowerDead = false;
+            }
         }
     }
 
