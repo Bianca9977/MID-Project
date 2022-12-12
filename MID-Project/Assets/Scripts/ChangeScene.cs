@@ -19,5 +19,13 @@ public class ChangeScene : MonoBehaviour
     {
         SceneManager.LoadScene("first_scene");
     }
+    public void ChangeToMainScene()
+    {
+        SceneManager.LoadScene("StartScene");
+    }
+    public void ChangeToMiddleScene()
+    {
+        SceneManager.LoadScene("MiddleScene");
+    }
 
 }

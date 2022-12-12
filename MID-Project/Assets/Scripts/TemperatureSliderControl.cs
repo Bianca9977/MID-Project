@@ -14,19 +14,37 @@ public class TemperatureSliderControl : MonoBehaviour
     public AudioClip flowerGrow;
     private bool flowerGrowFinal = false, flowerDead = false;
 
+    public float timeRemaining = 3;
+    public Canvas finalCanvas;
+
     // Start is called before the first frame update
     void Start()
     {
         initialScale = transform.localScale.y;
 
-        objectScale = transform.localScale;    
+        objectScale = transform.localScale;
+
+        finalCanvas.gameObject.SetActive(false);
 
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        if (flowerGrowFinal)
+        {
+            if (timeRemaining > 0)
+
+            {
+                timeRemaining -= Time.deltaTime;
+
+            }
+
+            else
+            {
+                finalCanvas.gameObject.SetActive(true);
+            }
+        }
     }
 
     public void changeOverlay()
@@ -54,6 +72,10 @@ public class TemperatureSliderControl : MonoBehaviour
                 AudioSource.PlayClipAtPoint(flowerGrow, new Vector3(0, 0, 0));
                 flowerGrowFinal = true;
                 flowerDead = false;
+
+                timeRemaining = 3;
+
+
             }
         }
     }

@@ -12,6 +12,10 @@ public class dropCounter : MonoBehaviour
 
     public AudioClip waterSound, flowerGrow;
     public static AudioClip waterSoundCopy, flowerGrowCopy;
+    public Canvas finalCanvas;
+    public static Canvas finalCanvasCopy;
+
+    private static bool gameEnd = false;
 
     // Start is called before the first frame update
     void Start()
@@ -26,12 +30,28 @@ public class dropCounter : MonoBehaviour
 
         waterSoundCopy = waterSound;
         flowerGrowCopy = flowerGrow;
+
+        finalCanvasCopy = finalCanvas;
+
+        finalCanvasCopy.gameObject.SetActive(false);
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        if (gameEnd)
+        {
+            
+            StartCoroutine(TriggerFinalScreen());
+           
+        }
+    }
+
+    IEnumerator TriggerFinalScreen()
+    {
+        yield return new WaitForSeconds(2f);
+        finalCanvasCopy.gameObject.SetActive(true);
+        gameEnd = false;
     }
 
     static public void increaseCounter()
@@ -55,6 +75,11 @@ public class dropCounter : MonoBehaviour
             AudioSource.PlayClipAtPoint(waterSoundCopy, new Vector3(0, 0, 0));
             plantObj.gameObject.GetComponent<SpriteRenderer>().sprite = plantGrowCopy;
             AudioSource.PlayClipAtPoint(flowerGrowCopy, new Vector3(0, 0, 0));
+
+            gameEnd = true;
+
+            
         }
     }
+
 }
