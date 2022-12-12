@@ -2214,6 +2214,7 @@ MonoBehaviour:
   plantGrow: {fileID: 21300000, guid: 97d3dbf508402af4487f16a3cc217f97, type: 3}
   waterSound: {fileID: 8300000, guid: 58d2595c0c9459d4fb607daac57e9413, type: 3}
   flowerGrow: {fileID: 8300000, guid: 484e0f983cc40794da5be70721f9ae6f, type: 3}
+  endSound: {fileID: 8300000, guid: ae983d00a6ee915448d140e930476ddd, type: 3}
   finalCanvas: {fileID: 1727377376}
 --- !u!4 &1880843092
 Transform:

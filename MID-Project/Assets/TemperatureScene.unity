@@ -1188,10 +1188,14 @@ MonoBehaviour:
   plantObj: {fileID: 53419927}
   plantDead: {fileID: 21300000, guid: c27281b0af78b824a8414b9af9cd9b23, type: 3}
   plantFinal: {fileID: 21300000, guid: b5249397d1c0d5b408dc200e871b91d2, type: 3}
+  plantInitial: {fileID: 21300000, guid: 79813ec416c7a774183e215e41ee8801, type: 3}
   overlaySlider: {fileID: 408778069}
   flowerGrow: {fileID: 8300000, guid: 484e0f983cc40794da5be70721f9ae6f, type: 3}
   timeRemaining: 3
   finalCanvas: {fileID: 430288951}
+  slideSound: {fileID: 8300000, guid: b01e1da31103da742a0076c21b6bbab4, type: 3}
+  negativeSound: {fileID: 8300000, guid: 47914746eaa06ba44b5fb804585cb956, type: 3}
+  endSound: {fileID: 8300000, guid: ae983d00a6ee915448d140e930476ddd, type: 3}
 --- !u!1 &547248133
 GameObject:
   m_ObjectHideFlags: 0

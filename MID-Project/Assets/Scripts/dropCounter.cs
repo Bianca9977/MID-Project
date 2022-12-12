@@ -10,8 +10,8 @@ public class dropCounter : MonoBehaviour
     private static int counter = 0;
     private static Sprite waterLevel2Copy, waterLevel3Copy, waterLevel4Copy, plantGrowCopy;
 
-    public AudioClip waterSound, flowerGrow;
-    public static AudioClip waterSoundCopy, flowerGrowCopy;
+    public AudioClip waterSound, flowerGrow, endSound;
+    public static AudioClip waterSoundCopy, flowerGrowCopy, endSoundCopy;
     public Canvas finalCanvas;
     public static Canvas finalCanvasCopy;
 
@@ -30,6 +30,7 @@ public class dropCounter : MonoBehaviour
 
         waterSoundCopy = waterSound;
         flowerGrowCopy = flowerGrow;
+        endSoundCopy = endSound;
 
         finalCanvasCopy = finalCanvas;
 
@@ -43,6 +44,7 @@ public class dropCounter : MonoBehaviour
         {
             
             StartCoroutine(TriggerFinalScreen());
+            gameEnd = false;
            
         }
     }
@@ -51,7 +53,8 @@ public class dropCounter : MonoBehaviour
     {
         yield return new WaitForSeconds(2f);
         finalCanvasCopy.gameObject.SetActive(true);
-        gameEnd = false;
+        AudioSource.PlayClipAtPoint(endSound, transform.position);
+      //  gameEnd = false;
     }
 
     static public void increaseCounter()
