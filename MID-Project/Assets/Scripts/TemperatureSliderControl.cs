@@ -10,7 +10,6 @@ public class TemperatureSliderControl : MonoBehaviour
     public Slider overlaySlider;
     private float initialScale;
     private Vector3 objectScale;
-    public Text PlantStatus;
 
     public AudioClip flowerGrow;
     private bool flowerGrowFinal = false, flowerDead = false;

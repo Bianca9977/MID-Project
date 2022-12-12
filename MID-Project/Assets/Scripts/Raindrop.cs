@@ -28,73 +28,79 @@ public class Raindrop : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Application.platform == RuntimePlatform.Android)
+        if (objectCheck.gameStart)
         {
-            if (Input.touchCount > 0)
+            if (Application.platform == RuntimePlatform.Android)
             {
-                Vector3 wp = Camera.main.ScreenToWorldPoint(Input.GetTouch(0).position);
-
-                if (col.OverlapPoint(wp))
+                if (Input.touchCount > 0)
                 {
-                    //rb.gravityScale = 1.0f;          
-
-                }
-                theTouch = Input.GetTouch(0);
-
-                if (theTouch.phase == TouchPhase.Ended)
-                {
-
-                    timeTouchEnded = Time.time;
-                    phaseDisplayText.text = "eeeeeend";
-                }
-                else if (Time.time - timeTouchEnded > displayTime)
-                {
-                    phaseDisplayText.text = "start" + (Time.time - timeTouchEnded);
-                    timeTouchEnded = Time.time;
+                    Vector3 wp = Camera.main.ScreenToWorldPoint(Input.GetTouch(0).position);
 
                     if (col.OverlapPoint(wp))
                     {
-                        rb.gravityScale = 1.0f;
-                        dropCounter.increaseCounter();
+                        //rb.gravityScale = 1.0f;          
+
                     }
+                    theTouch = Input.GetTouch(0);
+
+                    if (theTouch.phase == TouchPhase.Ended)
+                    {
+
+                        timeTouchEnded = Time.time;
+                        phaseDisplayText.text = "eeeeeend";
+                    }
+                    else if (Time.time - timeTouchEnded > displayTime)
+                    {
+                        phaseDisplayText.text = "start" + (Time.time - timeTouchEnded);
+                        timeTouchEnded = Time.time;
+
+                        if (col.OverlapPoint(wp))
+                        {
+                            rb.gravityScale = 1.0f;
+                            dropCounter.increaseCounter();
+                        }
+                    }
+
                 }
-                
+                else if (Time.time - timeTouchEnded > displayTime)
+                {
+                    phaseDisplayText.text = "";
+                }
             }
-            else if (Time.time - timeTouchEnded > displayTime)
+
+            else
             {
-                phaseDisplayText.text = "";
-            }
-        }
-       
-        else
-        {
 
-            pos = Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, 0));
+                pos = Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, 0));
 
-            if (col.OverlapPoint(pos))
-            {
-                Debug.Log("overlap");
-                rb.gravityScale = 1.0f;
+                if (col.OverlapPoint(pos))
+                {
+                    Debug.Log("overlap");
+                    rb.gravityScale = 1.0f;
+
+                }
 
             }
-
         }
 
     }
 
     void OnCollisionEnter2D(Collision2D col)
     {
-        Debug.Log("OnCollisionEnter2D");
-
-        if (col.gameObject.tag == "Line")
+        if (objectCheck.gameStart)
         {
-            AudioSource.PlayClipAtPoint(dropSound, transform.position);
-            Destroy(this.gameObject);
+            Debug.Log("OnCollisionEnter2D");
 
-            if (!addDrop)
+            if (col.gameObject.tag == "Line")
             {
-                dropCounter.increaseCounter();
-                addDrop = true;
+                AudioSource.PlayClipAtPoint(dropSound, transform.position);
+                Destroy(this.gameObject);
+
+                if (!addDrop)
+                {
+                    dropCounter.increaseCounter();
+                    addDrop = true;
+                }
             }
         }
     }

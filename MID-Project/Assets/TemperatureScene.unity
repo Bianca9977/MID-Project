@@ -357,84 +357,6 @@ Transform:
   m_Father: {fileID: 1956552574}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &72255780
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 72255781}
-  - component: {fileID: 72255783}
-  - component: {fileID: 72255782}
-  m_Layer: 5
-  m_Name: Text
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &72255781
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 72255780}
-  m_LocalRotation: {x: 0, y: 0, z: 1, w: 0}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: -0.023809623, y: -0.023809623, z: -0.023809623}
-  m_Children: []
-  m_Father: {fileID: 1156143245}
-  m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 180}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -360.98032, y: -198.91}
-  m_SizeDelta: {x: 160, y: 30}
-  m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &72255782
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 72255780}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
-  m_RaycastTarget: 1
-  m_Maskable: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 14
-    m_FontStyle: 0
-    m_BestFit: 0
-    m_MinSize: 10
-    m_MaxSize: 40
-    m_Alignment: 0
-    m_AlignByGeometry: 0
-    m_RichText: 1
-    m_HorizontalOverflow: 0
-    m_VerticalOverflow: 0
-    m_LineSpacing: 1
-  m_Text: New Text
---- !u!222 &72255783
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 72255780}
-  m_CullTransparentMesh: 0
 --- !u!1 &80213589
 GameObject:
   m_ObjectHideFlags: 0
@@ -522,7 +444,7 @@ GameObject:
   - component: {fileID: 125103915}
   - component: {fileID: 125103914}
   m_Layer: 5
-  m_Name: Canvas
+  m_Name: OverlayCanvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -878,6 +800,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   osc: {fileID: 1425354610}
   canvasObj: {fileID: 125103913}
+  objId: 3
 --- !u!4 &368388436
 Transform:
   m_ObjectHideFlags: 0
@@ -1165,7 +1088,6 @@ MonoBehaviour:
   plantDead: {fileID: 21300000, guid: c27281b0af78b824a8414b9af9cd9b23, type: 3}
   plantFinal: {fileID: 21300000, guid: b5249397d1c0d5b408dc200e871b91d2, type: 3}
   overlaySlider: {fileID: 408778069}
-  PlantStatus: {fileID: 72255782}
   flowerGrow: {fileID: 8300000, guid: 484e0f983cc40794da5be70721f9ae6f, type: 3}
 --- !u!1 &547248133
 GameObject:
@@ -1655,7 +1577,6 @@ RectTransform:
   m_Children:
   - {fileID: 1270609013}
   - {fileID: 408778068}
-  - {fileID: 72255781}
   m_Father: {fileID: 1956552574}
   m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

@@ -8,12 +8,13 @@ public class objectCheck : MonoBehaviour
 
     public OSC osc;
     public GameObject canvasObj;
+    public float objId;
+    public static bool gameStart = true;
 
     // Start is called before the first frame update
     void Start()
     {
         osc.SetAddressHandler("/Object", OnReceiveObject);
-
     }
 
     // Update is called once per frame
@@ -28,6 +29,15 @@ public class objectCheck : MonoBehaviour
 
         Debug.Log("message " + x);
 
-       // canvasObj.SetActive(false);
+        if (x == objId)
+        {
+            canvasObj.SetActive(false);
+            gameStart = true;
+        }
+        else
+        {
+            canvasObj.SetActive(true);
+            gameStart = false;
+        }
     }
 }
