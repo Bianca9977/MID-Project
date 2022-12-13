@@ -27,5 +27,9 @@ public class ChangeScene : MonoBehaviour
     {
         SceneManager.LoadScene("MiddleScene");
     }
+    public void ChangeToFinalScene()
+    {
+        SceneManager.LoadScene("FinalScene");
+    }
 
 }
