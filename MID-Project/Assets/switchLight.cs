@@ -6,19 +6,19 @@ using UnityEngine.UI;
 public class switchLight : MonoBehaviour
 {
 
-    public Text directionText;
     private Touch theTouch;
     private Vector2 touchStartPosition, touchEndPosition;
     private string direction;
 
     public Collider2D col;
     public static bool lightSwitch = false;
-    public GameObject lighObj;
+    public GameObject lighObj, planeObj;
 
     // Start is called before the first frame update
     void Start()
     {
         lighObj.gameObject.SetActive(false);
+        planeObj.gameObject.SetActive(false);
     }
 
     void Update()
@@ -46,17 +46,15 @@ public class switchLight : MonoBehaviour
                     {
                       if (y < 0)
                         {
-                          //  direction = "Down";
                             lightSwitch = true;
                             gameObject.transform.localScale = new Vector3(gameObject.transform.localScale.x, (gameObject.transform.localScale.y + 0.1f), gameObject.transform.localScale.z);
                             lighObj.gameObject.SetActive(true);
+                            planeObj.gameObject.SetActive(true);
                         }
                     }
                 }
 
             }
         }
-
-       // directionText.text = direction;
     }
 }

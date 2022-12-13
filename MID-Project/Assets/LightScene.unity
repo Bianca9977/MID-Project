@@ -1413,9 +1413,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f201e6b6c13d0e040991c105bbd4f38b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  directionText: {fileID: 0}
   col: {fileID: 1034818391}
   lighObj: {fileID: 738273568}
+  planeObj: {fileID: 721378749}
 --- !u!61 &1034818391
 BoxCollider2D:
   m_ObjectHideFlags: 0

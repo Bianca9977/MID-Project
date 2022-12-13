@@ -101,7 +101,6 @@ public class switchInteraction : MonoBehaviour
                             }
                             else if ((x <= 0) && (transform.localRotation.eulerAngles.z > 180f) && (transform.localRotation.eulerAngles.z <= 360f) && turnLeft)
                             {
-                                Debug.Log("turn left");
 
                                 transform.Rotate(new Vector3(0, 0, 1) * 180.0f * Time.deltaTime);
                                 myRenderer.material.Lerp(myRenderer.material, currentColor, 0.2f);
@@ -134,7 +133,6 @@ public class switchInteraction : MonoBehaviour
                                 flowerDead = true;
                                 flowerInitial = false;
                             }
-
 
                         }
                     }
