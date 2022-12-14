@@ -9,10 +9,10 @@ public class Raindrop : MonoBehaviour
     public Collider2D col;
     private Vector3 pos; //Position
 
-    public Text phaseDisplayText;
+ //   public Text phaseDisplayText;
     private Touch theTouch;
     private float timeTouchEnded;
-    private float displayTime = 2f;
+    private float displayTime = 1f;
     private bool addDrop = false;
 
     public AudioClip dropSound; 
@@ -47,24 +47,24 @@ public class Raindrop : MonoBehaviour
                     {
 
                         timeTouchEnded = Time.time;
-                        phaseDisplayText.text = "eeeeeend";
+                       // phaseDisplayText.text = "eeeeeend";
                     }
                     else if (Time.time - timeTouchEnded > displayTime)
                     {
-                        phaseDisplayText.text = "start" + (Time.time - timeTouchEnded);
+                       // phaseDisplayText.text = "start" + (Time.time - timeTouchEnded);
                         timeTouchEnded = Time.time;
 
                         if (col.OverlapPoint(wp))
                         {
                             rb.gravityScale = 1.0f;
-                            dropCounter.increaseCounter();
+                          //  dropCounter.increaseCounter();
                         }
                     }
 
                 }
                 else if (Time.time - timeTouchEnded > displayTime)
                 {
-                    phaseDisplayText.text = "";
+                   // phaseDisplayText.text = "";
                 }
             }
 

@@ -14,6 +14,8 @@ public class switchLight : MonoBehaviour
     public static bool lightSwitch = false;
     public GameObject lighObj, planeObj;
 
+    public AudioClip lightSound;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -50,6 +52,7 @@ public class switchLight : MonoBehaviour
                             gameObject.transform.localScale = new Vector3(gameObject.transform.localScale.x, (gameObject.transform.localScale.y + 0.1f), gameObject.transform.localScale.z);
                             lighObj.gameObject.SetActive(true);
                             planeObj.gameObject.SetActive(true);
+                            AudioSource.PlayClipAtPoint(lightSound, transform.position);
                         }
                     }
                 }

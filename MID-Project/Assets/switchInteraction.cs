@@ -23,7 +23,7 @@ public class switchInteraction : MonoBehaviour
     public Canvas finalCanvas;
     public float timeRemaining = 5;
 
-    public AudioClip endSound;
+    public AudioClip endSound, flowerGrow;
 
 
     // Start is called before the first frame update
@@ -117,6 +117,7 @@ public class switchInteraction : MonoBehaviour
 
                             if ((transform.localRotation.eulerAngles.z > 260f) && (transform.localRotation.eulerAngles.z < 295f)) {
                                 plantObj.gameObject.GetComponent<SpriteRenderer>().sprite = plantFinal;
+                                AudioSource.PlayClipAtPoint(flowerGrow, new Vector3(0, 0, 0));
                                 flowerGrowFinal = true;
                                 flowerDead = false;
                                 flowerInitial = false;
