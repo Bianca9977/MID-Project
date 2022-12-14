@@ -20,6 +20,7 @@ public class TemperatureSliderControl : MonoBehaviour
     public AudioClip slideSound, negativeSound, endSound;
 
     private float initialSlider = 0;
+    public Animator animator1;
 
     // Start is called before the first frame update
     void Start()
@@ -29,6 +30,7 @@ public class TemperatureSliderControl : MonoBehaviour
         objectScale = transform.localScale;
 
         finalCanvas.gameObject.SetActive(false);
+
 
     }
 
@@ -70,6 +72,7 @@ public class TemperatureSliderControl : MonoBehaviour
         {
             if (!flowerDead)
             {
+                animator1.enabled = true;
                 plantObj.gameObject.GetComponent<SpriteRenderer>().sprite = plantDead;
                 AudioSource.PlayClipAtPoint(negativeSound, transform.position);
                 flowerGrowFinal = false;
@@ -81,6 +84,10 @@ public class TemperatureSliderControl : MonoBehaviour
         {
             if (!flowerGrowFinal)
             {
+
+                animator1.enabled = false;
+                animator1.gameObject.SetActive(false);
+
                 plantObj.gameObject.GetComponent<SpriteRenderer>().sprite = plantFinal;
                 AudioSource.PlayClipAtPoint(flowerGrow, new Vector3(0, 0, 0));
                 flowerGrowFinal = true;
@@ -93,6 +100,7 @@ public class TemperatureSliderControl : MonoBehaviour
         }
         else if (sliderValue <= 1.5)
         {
+            animator1.enabled = true;
             plantObj.gameObject.GetComponent<SpriteRenderer>().sprite = plantInitial;
             flowerInitial = true;
             flowerGrowFinal = false;
