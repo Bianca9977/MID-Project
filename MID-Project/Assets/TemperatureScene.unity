@@ -1212,6 +1212,7 @@ MonoBehaviour:
   slideSound: {fileID: 8300000, guid: b01e1da31103da742a0076c21b6bbab4, type: 3}
   negativeSound: {fileID: 8300000, guid: 47914746eaa06ba44b5fb804585cb956, type: 3}
   endSound: {fileID: 8300000, guid: ae983d00a6ee915448d140e930476ddd, type: 3}
+  animator1: {fileID: 1030847095}
 --- !u!1 &596701246
 GameObject:
   m_ObjectHideFlags: 0
@@ -1671,6 +1672,12 @@ Transform:
   m_Father: {fileID: 1956552574}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!95 &1030847095 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 3613387183634200712, guid: 6809650ff17c3de48a317cfe7738354b,
+    type: 3}
+  m_PrefabInstance: {fileID: 3613387183697426007}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1134719148
 GameObject:
   m_ObjectHideFlags: 0
@@ -2653,7 +2660,7 @@ PrefabInstance:
     - target: {fileID: 3613387183634200759, guid: 6809650ff17c3de48a317cfe7738354b,
         type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6809650ff17c3de48a317cfe7738354b, type: 3}
