@@ -17,6 +17,8 @@ public class dropCounter : MonoBehaviour
 
     private static bool gameEnd = false;
 
+    public Animator animator1;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -45,6 +47,7 @@ public class dropCounter : MonoBehaviour
             
             StartCoroutine(TriggerFinalScreen());
             gameEnd = false;
+            animator1.gameObject.SetActive(false);
            
         }
     }

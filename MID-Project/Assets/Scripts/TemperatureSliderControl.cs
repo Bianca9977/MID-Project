@@ -73,6 +73,7 @@ public class TemperatureSliderControl : MonoBehaviour
             if (!flowerDead)
             {
                 animator1.enabled = true;
+                animator1.gameObject.SetActive(true);
                 plantObj.gameObject.GetComponent<SpriteRenderer>().sprite = plantDead;
                 AudioSource.PlayClipAtPoint(negativeSound, transform.position);
                 flowerGrowFinal = false;
@@ -101,6 +102,7 @@ public class TemperatureSliderControl : MonoBehaviour
         else if (sliderValue <= 1.5)
         {
             animator1.enabled = true;
+            animator1.gameObject.SetActive(true);
             plantObj.gameObject.GetComponent<SpriteRenderer>().sprite = plantInitial;
             flowerInitial = true;
             flowerGrowFinal = false;

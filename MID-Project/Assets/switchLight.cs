@@ -16,6 +16,8 @@ public class switchLight : MonoBehaviour
 
     public AudioClip lightSound;
 
+    public Animator animator1;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -53,6 +55,9 @@ public class switchLight : MonoBehaviour
                             lighObj.gameObject.SetActive(true);
                             planeObj.gameObject.SetActive(true);
                             AudioSource.PlayClipAtPoint(lightSound, transform.position);
+
+                            animator1.enabled = false;
+                            animator1.gameObject.SetActive(false);
                         }
                     }
                 }

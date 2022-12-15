@@ -3,7 +3,17 @@ guid: 24b07448c4e2f2e41af25af2de76578d
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - waterLevel2: {instanceID: 0}
+  - waterLevel3: {instanceID: 0}
+  - waterLevel4: {instanceID: 0}
+  - plantGrow: {instanceID: 0}
+  - waterSound: {instanceID: 0}
+  - flowerGrow: {instanceID: 0}
+  - endSound: {instanceID: 0}
+  - finalCanvas: {instanceID: 0}
+  - animator1: {fileID: 7370866438305747010, guid: 4b6db3ab2454eb24aa6b828e05f09704,
+      type: 3}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

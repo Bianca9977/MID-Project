@@ -25,6 +25,7 @@ public class switchInteraction : MonoBehaviour
 
     public AudioClip endSound, flowerGrow;
 
+    public Animator animator1;
 
     // Start is called before the first frame update
     void Start()
@@ -121,6 +122,10 @@ public class switchInteraction : MonoBehaviour
                                 flowerGrowFinal = true;
                                 flowerDead = false;
                                 flowerInitial = false;
+
+                                animator1.enabled = false;
+                                animator1.gameObject.SetActive(false);
+
                             } else if (transform.localRotation.eulerAngles.z > 320f)
                             {
                                 plantObj.gameObject.GetComponent<SpriteRenderer>().sprite = plantInitial;
