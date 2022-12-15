@@ -329,6 +329,7 @@ MonoBehaviour:
   endSound: {fileID: 8300000, guid: ae983d00a6ee915448d140e930476ddd, type: 3}
   flowerGrow: {fileID: 8300000, guid: 484e0f983cc40794da5be70721f9ae6f, type: 3}
   animator1: {fileID: 1570076245}
+  animatorSwipe: {fileID: 1570076245}
 --- !u!1 &237449211
 GameObject:
   m_ObjectHideFlags: 0
@@ -1784,7 +1785,7 @@ PrefabInstance:
     - target: {fileID: 3613387183634200758, guid: 6809650ff17c3de48a317cfe7738354b,
         type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3613387183634200758, guid: 6809650ff17c3de48a317cfe7738354b,
         type: 3}

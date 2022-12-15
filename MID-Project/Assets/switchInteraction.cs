@@ -17,7 +17,7 @@ public class switchInteraction : MonoBehaviour
     Material currentColor; //private variable in which we store the current color value of the material
     MeshRenderer myRenderer;
 
-    private bool flowerGrowFinal = false, flowerDead = false, flowerInitial = true;
+    private bool flowerGrowFinal = false, flowerDead = false, flowerInitial = true, toggleSwipe = true;
     public Sprite plantDead, plantFinal, plantInitial;
 
     public Canvas finalCanvas;
@@ -25,7 +25,7 @@ public class switchInteraction : MonoBehaviour
 
     public AudioClip endSound, flowerGrow;
 
-    public Animator animator1;
+    public Animator animator1, animatorSwipe;
 
     // Start is called before the first frame update
     void Start()
@@ -35,6 +35,9 @@ public class switchInteraction : MonoBehaviour
         currentColor = redColor;
 
         finalCanvas.gameObject.SetActive(false);
+
+        animatorSwipe.enabled = false;
+        animatorSwipe.gameObject.SetActive(false);
     }
 
     // Update is called once per frame
@@ -59,6 +62,11 @@ public class switchInteraction : MonoBehaviour
 
         if (switchLight.lightSwitch)
         {
+            if(toggleSwipe)
+            {
+                enableSwipe();
+            }
+
             if (Input.touchCount > 0)
             {
 
@@ -132,12 +140,16 @@ public class switchInteraction : MonoBehaviour
                                 flowerGrowFinal = false;
                                 flowerDead = false;
                                 flowerInitial = true;
+                                animator1.enabled = true;
+                                animator1.gameObject.SetActive(true);
                             } else if (transform.localRotation.eulerAngles.z < 210f)
                             {
                                 plantObj.gameObject.GetComponent<SpriteRenderer>().sprite = plantDead;
                                 flowerGrowFinal = false;
                                 flowerDead = true;
                                 flowerInitial = false;
+                                animator1.enabled = true;
+                                animator1.gameObject.SetActive(true);
                             }
 
                         }
@@ -147,5 +159,13 @@ public class switchInteraction : MonoBehaviour
         }
 
       
+    }
+
+    void enableSwipe()
+    {
+        animatorSwipe.enabled = true;
+        animatorSwipe.gameObject.SetActive(true);
+
+        toggleSwipe = false;
     }
 }

@@ -23,6 +23,7 @@ public class switchLight : MonoBehaviour
     {
         lighObj.gameObject.SetActive(false);
         planeObj.gameObject.SetActive(false);
+
     }
 
     void Update()
@@ -58,6 +59,8 @@ public class switchLight : MonoBehaviour
 
                             animator1.enabled = false;
                             animator1.gameObject.SetActive(false);
+
+                  
                         }
                     }
                 }
